@@ -1,5 +1,16 @@
 services:
+  server:
+    container_name: app
+    build:
+      context: .
+    entrypoint: ["sh", "/app/run_app.sh"]
+    ports:
+      - 8000:8000
+
   nginx:
+    container_name: nginx
     image: nginx
     volumes:
-      - "./nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf"
+      - "./nginx.conf:/etc/nginx/nginx.conf"
+    ports:
+      - 8080:8080
