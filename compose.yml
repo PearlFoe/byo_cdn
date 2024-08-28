@@ -24,10 +24,9 @@ services:
       - -nginx.scrape-uri=http://nginx:8000/nginx_status
 
   prometheus:
+    container_name: prometheus
     image: prom/prometheus:latest
     ports:
       - 9090:9090
     volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
-    networks:
-      - monitoring
+      - ./prometheus.yaml:/etc/prometheus/prometheus.yml
