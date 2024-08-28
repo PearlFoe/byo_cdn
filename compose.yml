@@ -14,3 +14,20 @@ services:
       - "./nginx.conf:/etc/nginx/nginx.conf"
     ports:
       - 8080:8080
+
+  nginx-exporter:
+    container_name: nginx-exporter
+    image: nginx/nginx-prometheus-exporter:latest
+    ports:
+      - 9113:9113
+    command:
+      - -nginx.scrape-uri=http://nginx:8000/nginx_status
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      -"9090:9090
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - monitoring
