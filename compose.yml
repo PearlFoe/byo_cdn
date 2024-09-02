@@ -18,16 +18,12 @@ services:
   nginx-exporter:
     container_name: nginx-exporter
     image: nginx/nginx-prometheus-exporter:latest
-    ports:
-      - 9113:9113
     command:
-      - -nginx.scrape-uri=http://nginx:8000/nginx_status
+      - -nginx.scrape-uri=http://nginx:8080/nginx_status
 
   prometheus:
     container_name: prometheus
     image: prom/prometheus:latest
-    ports:
-      - 9090:9090
     volumes:
       - ./prometheus.yaml:/etc/prometheus/prometheus.yml
 
