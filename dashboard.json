@@ -1,0 +1,337 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Grafana --"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": 1,
+    "links": [],
+    "panels": [
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "edwphu2hwl1q8c"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [
+              {
+                "options": {
+                  "0": {
+                    "index": 0,
+                    "text": "Down"
+                  },
+                  "1": {
+                    "index": 1,
+                    "text": "Up"
+                  }
+                },
+                "type": "value"
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "red",
+                  "value": null
+                },
+                {
+                  "color": "green",
+                  "value": 1
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 4,
+          "x": 0,
+          "y": 0
+        },
+        "id": 1,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showPercentChange": false,
+          "textMode": "auto",
+          "wideLayout": true
+        },
+        "pluginVersion": "11.0.0",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "edwphu2hwl1q8c"
+            },
+            "disableTextWrap": false,
+            "editorMode": "code",
+            "expr": "nginx_up",
+            "fullMetaSearch": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A",
+            "useBackend": false
+          }
+        ],
+        "title": "Nginx state",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "edwphu2hwl1q8c"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 10,
+          "x": 4,
+          "y": 0
+        },
+        "id": 3,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "maxHeight": 600,
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "edwphu2hwl1q8c"
+            },
+            "editorMode": "code",
+            "expr": "rate(nginx_http_requests_total[$__rate_interval])",
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "Requests",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "edwphu2hwl1q8c"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 10,
+          "x": 14,
+          "y": 0
+        },
+        "id": 2,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "maxHeight": 600,
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "edwphu2hwl1q8c"
+            },
+            "disableTextWrap": false,
+            "editorMode": "code",
+            "expr": "rate(nginx_connections_accepted[$__rate_interval])",
+            "fullMetaSearch": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "Accepted",
+            "range": true,
+            "refId": "A",
+            "useBackend": false
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "edwphu2hwl1q8c"
+            },
+            "editorMode": "code",
+            "expr": "rate(nginx_connections_handled[$__rate_interval])",
+            "hide": false,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "B"
+          }
+        ],
+        "title": "Connections",
+        "type": "timeseries"
+      }
+    ],
+    "refresh": "5s",
+    "schemaVersion": 39,
+    "tags": [],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now-15m",
+      "to": "now"
+    },
+    "timeRangeUpdatedDuringEditOrView": false,
+    "timepicker": {},
+    "timezone": "browser",
+    "title": "CDN metrics",
+    "uid": "bdwpidj9glkowe",
+    "version": 2,
+    "weekStart": ""
+  }
