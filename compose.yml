@@ -1,5 +1,5 @@
 services:
-  server:
+  app:
     container_name: app
     build:
       context: .
@@ -7,13 +7,25 @@ services:
     ports:
       - 8000:8000
 
-  nginx:
-    container_name: nginx
+  backend:
+    container_name: backend
     image: nginx
-    volumes:
-      - "./nginx.conf:/etc/nginx/nginx.conf"
+    extends:
+      service: nginx
     ports:
       - 8080:8080
+    volumes:
+      - "./nginx.conf:/etc/nginx/backend.nginx.conf"
+
+  edge:
+    container_name: edge
+    image: nginx
+    extends:
+      service: nginx
+    ports:
+      - 8081:8080
+    volumes:
+      - "./nginx.conf:/etc/nginx/edge.nginx.conf"
 
   nginx-exporter:
     container_name: nginx-exporter
